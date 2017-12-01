@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>de.hpfsc.server.GreetingServiceImpl</servlet-class>
+  </servlet>
+  
+    <servlet>
+    <servlet-name>academicwiki</servlet-name>
+    <servlet-class>de.hpfsc.server.AcademicWikiServiceImpl</servlet-class>
+  </servlet>
+  
+
+        
+<context-param>
+<param-name>contextConfigLocation</param-name>
+<param-value>/WEB-INF/dispatcher-config.xml</param-value>
+</context-param>
+<listener>
+<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/parent/greet</url-pattern>
+  </servlet-mapping>
+
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>parent.html</welcome-file>
+  </welcome-file-list>
+
+</web-app>

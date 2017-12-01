@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bean id="springApplicationContextProvider" class="com.isomorphic.spring.SpringApplicationContextProvider" />  
+  
+# <!-- Connection to data base -->  
+<bean id="dataSource"  
+      class="org.springframework.jdbc.datasource.DriverManagerDataSource"  
+      p:driverClassName="DRIVER_CLASS"  
+      p:url="CONNECTION_URL"  
+      p:username="DB_USER_NAME"  
+      p:password="DB_USER_PASSWORD" />  
+ 
+# <!-- Reference to JPA EntityManagerFactory -->  
+ <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">  
+     <property name="dataSource" ref="dataSource" />  
+     <property name="jpaVendorAdapter">  
+         <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">  
+             <property name="database" value="DB_TYPE" />  
+        </bean>  
+     </property>  
+    <property name="persistenceUnitName" value="PERSISTENCE_UNIT_NAME" />  
+ </bean>  
+  
+ <!-- Reference to JpaTransactionManager -->  
+ <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">  
+     <property name="entityManagerFactory" ref="entityManagerFactory" />  
+ </bean>  
