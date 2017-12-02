@@ -1,4 +1,4 @@
-package de.hpfsc.server;
+package com.jyothi.server;
 
 import java.util.List;
 
@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import de.hpfsc.shared.AutowiringRemoteServiceServlet;
-import de.hpfsc.shared.FieldVerifier;
-import de.hpfsc.web.AcademicWikiDao;
-import de.hpfsc.web.AcademicWikiModel;
-import de.hpfsc.web.AcademicWikiService;
+import com.jyothi.shared.AutowiringRemoteServiceServlet;
+import com.jyothi.shared.FieldVerifier;
+import com.jyothi.web.AcademicWikiDao;
+import com.jyothi.web.AcademicWikiModel;
+import com.jyothi.web.AcademicWikiService;
 
 /**
  * The server side implementation of the RPC service.

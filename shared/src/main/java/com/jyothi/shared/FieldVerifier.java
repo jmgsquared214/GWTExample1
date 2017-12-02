@@ -1,4 +1,4 @@
-package de.hpfsc.shared;
+package com.jyothi.shared;
 
 /**
  * <p>

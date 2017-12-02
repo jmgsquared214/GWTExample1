@@ -1,4 +1,4 @@
-package de.hpfsc.web;
+package com.jyothi.web;
 
 import java.util.List;
 
@@ -41,9 +41,9 @@ public class AcademicWikiDao {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<de.hpfsc.web.AcademicWikiModel> findAll() {
+	public List<com.jyothi.web.AcademicWikiModel> findAll() {
 		Session session = this.sessionFactory.getCurrentSession();
-		List<de.hpfsc.web.AcademicWikiModel> personsList = session.createQuery("from AcademicWikiModel").list();
+		List<com.jyothi.web.AcademicWikiModel> personsList = session.createQuery("from AcademicWikiModel").list();
 		return personsList;
 	}
 	

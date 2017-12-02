@@ -11,7 +11,7 @@
             http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
             http://www.springframework.org/schema/tx  http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
  
-    <context:component-scan base-package="de.hpfsc"/>
+    <context:component-scan base-package="com.jyothi"/>
     <context:spring-configured/>
     
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -29,7 +29,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
-				<value>de.hpfsc.web.AcademicWikiModel</value>
+				<value>com.jyothi.web.AcademicWikiModel</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

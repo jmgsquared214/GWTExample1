@@ -1,4 +1,4 @@
-package de.hpfsc.web;
+package com.jyothi.web.model;
 
 import java.io.Serializable;
 

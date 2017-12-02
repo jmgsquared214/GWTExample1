@@ -1,4 +1,4 @@
-package de.hpfsc.web;
+package com.jyothi.web;
 
 import java.util.List;
 
