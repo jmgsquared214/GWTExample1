@@ -6,6 +6,8 @@
     <!-- We need the JUnit module in the main module,               -->
     <!-- otherwise eclipse complains (Google plugin bug?)           -->
     <inherits name='com.google.gwt.junit.JUnit'/>
+    
+       <inherits name="com.google.gwt.logging.Logging"/>
 
     <!-- Inherit the default GWT style sheet.  You can change       -->
     <!-- the theme of your GWT application by uncommenting          -->
@@ -14,6 +16,14 @@
     <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
     <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
  <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+ 
+ <inherits name="com.smartclient.theme.enterprise.Enterprise"/>
+     <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.user.History"/>
+
+    <inherits name="com.smartgwt.SmartGwtNoScript"/>
+    <inherits name="com.smartgwt.tools.SmartGwtTools"/>
+    <inherits name="com.smartclient.theme.enterprise.EnterpriseResources"/>
  <inherits name="com.smartgwt.SmartGwt" />
     <inherits name="com.smartgwt.tools.SmartGwtTools"/>
     

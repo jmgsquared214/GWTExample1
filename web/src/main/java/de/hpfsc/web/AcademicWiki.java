@@ -45,6 +45,8 @@ public class AcademicWiki extends ListGridRecord  implements Serializable {
 	@Column(name = "studentname")
 	public String studentName;
 	
+	public boolean delete;
+	
 	
 	public String getResource() {
 		return getAttributeAsString("resource");
@@ -59,10 +61,10 @@ public class AcademicWiki extends ListGridRecord  implements Serializable {
 		 setAttribute("link", link);;
 	}
 	public String getPdf() {
-		return getAttributeAsString("pdf");
+		return getAttributeAsString("pdfname");
 	}
 	public void setPdf(String pdf) {
-		 setAttribute("pdf", pdf);;
+		 setAttribute("pdfname", pdf);;
 	}
 	public String getDate() {
 		return getAttributeAsString("date");
@@ -83,10 +85,16 @@ public class AcademicWiki extends ListGridRecord  implements Serializable {
 		 setAttribute("studentname", studentName);;
 	}
 	public Long getId() {
-		return id;
+		return Long.parseLong(getAttributeAsString("id"));
 	}
 	public void setId(Long id) {
-		this.id = id;
+		 setAttribute("id", id);;
+	}
+	public Boolean getDelete() {
+		return getAttributeAsBoolean("delete");
+	}
+	public void setDelete(boolean delete) {
+		 setAttribute("delete", delete);;
 	}
 
 }

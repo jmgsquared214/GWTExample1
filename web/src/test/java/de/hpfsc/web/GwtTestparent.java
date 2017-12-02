@@ -43,7 +43,7 @@ public class GwtTestparent extends GWTTestCase {
    */
   public void testGreetingService() {
     // Create the service that we will test.
-    GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+    AcademicWikiServiceAsync greetingService = GWT.create(AcademicWikiService.class);
     ServiceDefTarget target = (ServiceDefTarget) greetingService;
     target.setServiceEntryPoint(GWT.getModuleBaseURL() + "parent/greet");
 

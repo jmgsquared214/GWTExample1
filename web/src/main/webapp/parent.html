@@ -18,17 +18,32 @@
     <!-- Any title is fine                         -->
                                           
     <title>Example</title>
-     <script src="parent/sc/modules/ISC_Calendar.js"></script>
-    <script src="parent/sc/modules/ISC_Containers.js"></script>
     <script src="parent/sc/modules/ISC_Core.js"></script>
-    <script src="parent/sc/modules/ISC_DataBinding.js"></script>   
-    <script src="parent/sc/modules/ISC_Foundation.js"></script>
-    <script src="parent/sc/modules/ISC_Grids.js"></script>
     <script src="parent/sc/modules/ISC_History.js"></script>
     <script src="parent/sc/modules/ISC_PluginBridges.js"></script>
-    <script src="parent/sc/modules/ISC_RichTextEditor.js"></script>
     <script src="parent/sc/modules/ISC_Scheduler.js"></script>
     <script src="parent/sc/skins/Enterprise/load_skin.js"></script>
+    <!-- IMPORTANT : You must set the variable isomorphicDir to [MODULE_NAME]/sc/ so that the SmartGWT resource are correctly resolved -->
+<script> var isomorphicDir = "parent/sc/"; </script>
+
+
+<!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading Core API...';</script> -->
+
+<!--include the SC Core API-->
+<script src=parent/sc/modules/ISC_Core.js></script>
+
+<!--include SmartClient -->
+<!--  <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading UI Components...';</script>
+-->
+<script src=parent/sc/modules/ISC_Foundation.js></script>
+<script src=parent/sc/modules/ISC_Containers.js></script>
+<script src=parent/sc/modules/ISC_Grids.js></script>
+<script src=parent/sc/modules/ISC_Forms.js></script>
+<script src=parent/sc/modules/ISC_RichTextEditor.js></script>
+<script src=parent/sc/modules/ISC_Calendar.js></script>
+<!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading Data API...';</script>
+-->
+<script src=parent/sc/modules/ISC_DataBinding.js></script>
     
 
     <!--                                           -->
@@ -45,30 +60,33 @@
   <!-- to create a completely dynamic UI.        -->
   <!--                                           -->
   <body>
-    <!-- OPTIONAL: include this if you want history support -->
-    <iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1' style="position:absolute;width:0;height:0;border:0"></iframe>
+<script>
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
 
-    <!-- RECOMMENDED if your web app will not function without JavaScript enabled -->
-    <noscript>
-      <div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
-        Your web browser must have JavaScript enabled
-        in order for this application to display correctly.
-      </div>
-    </noscript>
+// Determine what skin file to load
+var currentSkin = readCookie('skin'); 
+if (currentSkin == null) currentSkin = "Enterprise";
+</script>
 
-    <h1></h1>
+<!--load skin-->
+<!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading skin...';</script>
+-->
+<script type="text/javascript">
+document.write("<"+"script src=parent/sc/skins/" + currentSkin + "/load_skin.js?isc_version=7.0beta.js><"+"/script>");
+</script>
 
-    <table align="center">
-      <tr>
-        <td colspan="2" style="font-weight:bold;"></td>
-      </tr>
-      <tr>
-        <td id="nameFieldContainer"></td>
-        <td id="sendButtonContainer"></td>
-      </tr>
-      <tr>
-        <td colspan="2" style="color:red;" id="errorLabelContainer"></td>
-      </tr>
-    </table>
+<!--include the application JS-->
+<!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading 250+ Samples<br>Please wait...';</script>
+-->
+<script type="text/javascript" src="parent"></script>
   </body>
 </html>
