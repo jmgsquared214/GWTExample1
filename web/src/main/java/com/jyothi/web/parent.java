@@ -1,4 +1,4 @@
-package de.hpfsc.web;
+package com.jyothi.web;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -6,6 +6,10 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.RootPanel;
+import com.jyothi.web.AcademicWikiModel;
+import com.jyothi.web.AcademicWikiService;
+import com.jyothi.web.AcademicWikiServiceAsync;
+import com.jyothi.web.model.AcademicWiki;
 import com.smartgwt.client.core.DataClass;
 import com.smartgwt.client.data.Criteria;
 import com.smartgwt.client.data.DataSource;
@@ -44,9 +48,6 @@ public class parent implements EntryPoint {
    */
   private final AcademicWikiServiceAsync academicWikiService = GWT.create(AcademicWikiService.class);
   
-	
-
-  private final Messages messages = GWT.create(Messages.class);
   
   Logger logger = Logger.getLogger("Test1.java");
 
@@ -75,9 +76,9 @@ public class parent implements EntryPoint {
 	  listGrid.setAutoSaveEdits(false);
 	  listGrid.setSaveByCell(false);
 	  
-	  ListGridField resourceField = new ListGridField("resource", "Resource", 40);
+	  ListGridField resourceField = new ListGridField("resource", "Resource", 120);
 	  ListGridField linkField = new ListGridField("link", "Link");
-	  ListGridField pdfnameField = new ListGridField("pdfname", "PdfName", 225);
+	  ListGridField pdfnameField = new ListGridField("pdfname", "PdfName", 120);
 	  ListGridField articlenameField = new ListGridField("articlename", "ArticleName");
 	  ListGridField studentnameField = new ListGridField("studentname", "StudentName");
 	  ListGridField checkBoxField = new ListGridField("delete");

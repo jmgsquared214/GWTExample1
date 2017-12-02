@@ -28,11 +28,11 @@
     <inherits name="com.smartgwt.tools.SmartGwtTools"/>
     
     <!-- Other module inherits                                      -->
-    <inherits name="de.hpfsc.shared"/>
-    <inherits name="de.hpfsc.server"/>
+    <inherits name="com.jyothi.shared"/>
+    <inherits name="com.jyothi.server"/>
 
     <!-- Specify the app entry point class.                         -->
-    <entry-point class='de.hpfsc.web.parent'/>
+    <entry-point class='com.jyothi.web.parent'/>
 
     <!-- Specify the paths for translatable code                    -->
     <source path='web'/>
