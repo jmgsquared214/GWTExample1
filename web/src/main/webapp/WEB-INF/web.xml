@@ -8,12 +8,7 @@
   <!-- Servlets -->
   <servlet>
     <servlet-name>greetServlet</servlet-name>
-    <servlet-class>de.hpfsc.server.GreetingServiceImpl</servlet-class>
-  </servlet>
-  
-    <servlet>
-    <servlet-name>academicwiki</servlet-name>
-    <servlet-class>de.hpfsc.server.AcademicWikiServiceImpl</servlet-class>
+    <servlet-class>com.jyothi.server.AcademicWikiServiceImpl</servlet-class>
   </servlet>
   
 
