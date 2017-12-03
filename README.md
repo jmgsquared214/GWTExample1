@@ -39,17 +39,4 @@ On success, the GWT Dev Mode window opens. Click *Launch Default Browser* to ope
 You can now make changes to your client Java code. Changes become immediately available as soon as you reloaded your page in the browser.
 
 
-Feedback
---------
 
-Feedback is very welcome! You can reach me via:
-
-* Email - seb-DOT-kde-AT-hpfsc.de
-* Web - [sebstein.hpfsc.de](http://sebstein.hpfsc.de/)
-* Twitter - [@stein2](https://twitter.com/stein2)
-
-
-License
--------
-
-Public Domain
