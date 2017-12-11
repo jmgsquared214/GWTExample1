@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+
+		<param name="Target" value="System.out" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] [%t]: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="rolling" class="org.apache.log4j.rolling.RollingFileAppender">
+
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="ActiveFileName" value="../logs/catalina.log" />
+			<param name="FileNamePattern" value="../logs/catalina.log.%d.gz" />
+		</rollingPolicy>
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] [%t]: %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="async" class="org.apache.log4j.AsyncAppender">
+
+		<!-- Throw away messages when the buffer is full instead of blocking the app. -->
+		<param name="Blocking" value="false" />
+		<!-- Set a decent sized buffer to avoid losing messages. -->
+		<param name="BufferSize" value="1024" />
+
+		<appender-ref ref="rolling" />
+		<appender-ref ref="console" />
+	</appender>
+
+	<!-- An appender for filtering (so the string match cost can be incurred only on a per Logger basis,
+		as opposed to for all LoggingEvents for the entire app. -->
+	<appender name="asyncFiltering" class="org.apache.log4j.AsyncAppender">
+
+		<!-- Throw away messages when the buffer is full instead of blocking the app. -->
+		<param name="Blocking" value="false" />
+		<!-- Set a decent sized buffer to avoid losing messages. -->
+		<param name="BufferSize" value="1024" />
+
+		<!-- Filter out Struts 2 org.apache.struts2.dispatcher.Dispatcher stack traces for "404's". -->
+		<filter class="org.apache.log4j.varia.StringMatchFilter">
+			<param name="StringToMatch" value="Could not find action or result" />
+			<param name="AcceptOnMatch" value="false" />
+		</filter>
+
+		<appender-ref ref="rolling" />
+		<appender-ref ref="console" />
+	</appender>
+
+
+	<logger name="org.apache.struts2.dispatcher.Dispatcher" additivity="false">
+		<!-- We'll use the asyncFiltering appender exclusively for logging events from the Struts 2 Dispatcher,
+			which otherwise logs every 404 at warn level with a stack trace. -->
+		<appender-ref ref="asyncFiltering" />
+	</logger>
+
+	<logger name="AspectJ Weaver">
+		<!-- AspectJ via org.springframework.aop.aspectj.AspectJWeaverMessageHandler is a bit noisy out of
+			the box. -->
+		<level value="warn" />
+	</logger>
+
+	<logger name="org.hibernate.stat.Statistics">
+		<!-- As of 3.6 hibernate.generate_statistics=true adds logging for queries, which is too noisy for
+			prod. -->
+		<level value="warn" />
+	</logger>
+
+	<logger name="com.isomorphic">
+		<level value="debug" />
+	</logger>
+
+	<logger name="com.isomorphic.base.Reflection">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.base.ISCInit">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.base.ConfigLoader">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.download.Download">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.sql.ValueSet">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.servlet.RequestContext">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.datasource.DataSource">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.datasource.BasicDataSource">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.validation.Validation">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.store.DataStructCache">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.assembly.FileAssembler">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.obfuscation.Obfuscator">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.servlet.PreCache">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.timing.Timing">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.resultData.ResultData">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.js.JSSyntaxScannerFilter">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.interfaces.InterfaceProvider">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.compression.Compression">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.servlet.ProxyHttpServletResponse">
+		<level value="info" />
+	</logger>
+
+	<logger name="com.isomorphic.naming.JNDI">
+		<level value="warn" />
+	</logger>
+
+	<!-- For debugging...
+	<logger name="org.springframework.security">
+		<level value="trace" />
+	</logger>
+	<logger name="org.springframework.transaction">
+		<level value="trace" />
+	</logger>
+	<logger name="org.hibernate.SQL">
+		<level value="debug" />
+	</logger>
+	<logger name="org.hibernate.type">
+		<level value="trace" />
+	</logger>
+	<logger name="org.hibernate.cache">
+		<level value="trace" />
+	</logger>
+	<logger name="net.sf.ehcache">
+		<level value="trace" />
+	</logger>
+	<logger name="com.opensymphony">
+		<level value="debug" />
+	</logger>
+	<logger name="org.apache.struts2">
+		<level value="debug" />
+	</logger>
+	<logger name="org.mybatis">
+		<level value="trace" />
+	</logger>
+	-->
+
+	<root>
+		<level value="info" />
+		<appender-ref ref="async" />
+	</root>
+
+</log4j:configuration>

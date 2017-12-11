@@ -1,0 +1,19 @@
+<DataSource ID="contacts"    serverType="hibernate"  
+    autoDeriveSchema="true"  
+    schemaBean="com.jyothi.web.model.AcademicWiki"  
+    
+    >
+<fields>
+ <field primaryKey="true"
+ name="id" hidden="true" type="sequence" />
+ <field name="Delete" title="Delete" type="boolean" canEdit="true" >
+ </field>
+ <field name="resource" title="resource" type="text" >
+ </field>
+ <field name="link" title="link" type="text" />
+ <field name="pdfname" title="pdfname" type="text" />
+ <field name="articlename" title="articlename" type="text" />
+ <field name="studentname" title="studentname" type="text" />
+  <field name="subject" title="subject" type="text" />
+</fields>
+</DataSource>
