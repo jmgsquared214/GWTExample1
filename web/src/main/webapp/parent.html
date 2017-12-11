@@ -18,11 +18,9 @@
     <!-- Any title is fine                         -->
                                           
     <title>Example</title>
-    <script src="parent/sc/modules/ISC_Core.js"></script>
     <script src="parent/sc/modules/ISC_History.js"></script>
     <script src="parent/sc/modules/ISC_PluginBridges.js"></script>
     <script src="parent/sc/modules/ISC_Scheduler.js"></script>
-    <script src="parent/sc/skins/Enterprise/load_skin.js"></script>
     <!-- IMPORTANT : You must set the variable isomorphicDir to [MODULE_NAME]/sc/ so that the SmartGWT resource are correctly resolved -->
 <script> var isomorphicDir = "parent/sc/"; </script>
 
@@ -30,20 +28,12 @@
 <!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading Core API...';</script> -->
 
 <!--include the SC Core API-->
-<script src=parent/sc/modules/ISC_Core.js></script>
 
 <!--include SmartClient -->
 <!--  <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading UI Components...';</script>
 -->
-<script src=parent/sc/modules/ISC_Foundation.js></script>
-<script src=parent/sc/modules/ISC_Containers.js></script>
-<script src=parent/sc/modules/ISC_Grids.js></script>
-<script src=parent/sc/modules/ISC_Forms.js></script>
-<script src=parent/sc/modules/ISC_RichTextEditor.js></script>
-<script src=parent/sc/modules/ISC_Calendar.js></script>
 <!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading Data API...';</script>
 -->
-<script src=parent/sc/modules/ISC_DataBinding.js></script>
     
 
     <!--                                           -->
@@ -87,6 +77,7 @@ document.write("<"+"script src=parent/sc/skins/" + currentSkin + "/load_skin.js?
 <!--include the application JS-->
 <!-- <script type="text/javascript">document.getElementById('loadingMsg').innerHTML = 'Loading 250+ Samples<br>Please wait...';</script>
 -->
+<script src="sc/DataSourceLoader?dataSource=contacts"></script>
 <script type="text/javascript" src="parent"></script>
   </body>
 </html>

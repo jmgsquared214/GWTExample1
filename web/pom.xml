@@ -40,6 +40,12 @@
     <artifactId>spring-context</artifactId>
     <version>4.3.5.RELEASE</version>
 </dependency>
+<dependency>
+  <groupId>com.isomorphic.smartgwt.eval</groupId>
+    <artifactId>isomorphic-core-rpc</artifactId>
+    <version>12.0-d20171128</version>
+    </dependency>
+
     </dependencies>
 
     <build>
@@ -71,6 +77,12 @@
                     <noServer>true</noServer>
                     <port>${tomcat.webport}</port>
                     <runTarget>${tomcat.context}</runTarget>
+                   <extraJvmArgs>-Xmx1024m</extraJvmArgs>
+                    <meminitial>1024m</meminitial>
+      <maxmem>2024m</maxmem>
+                      <systemProperties>
+                        <JAVA_OPTS>-Xmx=1024m</JAVA_OPTS>
+                    </systemProperties>
                 </configuration>
             </plugin>
 
@@ -88,6 +100,9 @@
                 </executions>
                 <configuration>
                     <webappDirectory>${webappDirectory}</webappDirectory>
+                     <systemProperties>
+                        <JAVA_OPTS>-XX:MaxPermSize=1024m</JAVA_OPTS>
+                    </systemProperties>
                 </configuration>
             </plugin>
         </plugins>
